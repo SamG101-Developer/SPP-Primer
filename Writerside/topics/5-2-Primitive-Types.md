@@ -64,6 +64,6 @@ instead directly encoded into the instructions that use them. Semantically, they
 
 ## Void type
 The `Void` is the only type that has no instances. This is because it is a "nothing" type, and can not be used for 
-variables, attributes, or parameters etc. It represents the absence of a value, and is used as the return type of 
-functions that don't return a value. The `Void` type cannot be used as a generic argument, otherwise it could 
-circumvent the previously mentioned type system restrictions. The `Void` type is mapped to the LLVM `void` type.
+variables or attributes. It represents the absence of a value, and is used as the return type of functions that 
+don't return a value. A `Void` parameter doesn't take a value; this is needed for when a generic argument is `Void`, 
+and the corresponding generic parameter is used as a parameter type.

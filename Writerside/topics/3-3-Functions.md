@@ -52,6 +52,18 @@ and require the `mut` keyword to be used to make them mutable, the same as varia
 ### Parameter classifications
 Parameters can be either required, optional, or variadic. The order of parameters must be in this order too.
 
+#### The `self` parameter
+The `self` parameter can only be used on `sup` methods, not normal functions in the module scope. Applying a 
+convention to the `self` parameter is done slightly different, because a type is not required for the `self` 
+parameter: it is always `Self`. The convention dictates how the environment of the function is captured.
+
+| `self` convention | Description                                        |
+|-------------------|----------------------------------------------------|
+| `self`            | Consume the environment of the function immutably. |
+| `mut self`        | Consume the environment of the function mutably.   |
+| `&self`           | Immutably borrow the environment of the function.  |
+| `&mut self`       | Mutably borrow the environment of the function.    |
+
 #### Required parameters
 Required parameters are parameters that must be specified when calling a function. They are declared by simply 
 declaring a parameter with a type annotation. Here, `a` and `b` are required parameters:
@@ -91,10 +103,10 @@ lifetime of the borrow can be guaranteed to be valid.
 ### Function parameter conventions
 Function parameters can have conventions. These allow for borrows to be passed into functions, or for values to be 
 moved into the function. Each convention taken at the function call site per argument must match the convention of 
-the corresponding function parameter. There are 3 conventions: by-val (move), by-ref (immutable borrow), and by-mut 
+the corresponding function parameter. There are 3 conventions: by-mov (move), by-ref (immutable borrow), and by-mut 
 (mutable borrow).
 
-#### By-val (move)
+#### By-mov (move)
 This is the default convention, and is used when no convention is specified. It moves the value into the function, 
 unless the `Copy` type has been superimposed over the argument type, in which case the value is _copied_ into the 
 function. Either way, an owned value is passed into the function.
@@ -150,7 +162,8 @@ fun foo() -> (Str, Str) {
 
 ## Function types
 The 3 function types, as mentioned earlier are the `FunRef`, `FunMut` and `FunMov` function types. These all have 
-slightly different intrinsics, and are required for the memory model.
+slightly different intrinsics, and are required for the memory model. All of these classes superimpose the `Fun` class,
+allowing for some behaviour to be shared between the 3 classes.
 
 | Function type         | Description                         |
 |-----------------------|-------------------------------------|
@@ -160,7 +173,7 @@ slightly different intrinsics, and are required for the memory model.
 
 ### Class methods
 Class methods are functions inside `sup` blocks. The type of each method is determined by the convention of the 
-`self` parameters::
+`self` parameters:
 
 | `self` convention | Method type |
 |-------------------|-------------|
@@ -169,10 +182,66 @@ Class methods are functions inside `sup` blocks. The type of each method is dete
 | `&self`           | `FunRef`    |
 | `&mut self`       | `FunMut`    |
 
+#### Static methods
+Class methods that omit the `self` parameter are static methods. They must be called from the type, not from an 
+instance of the type.
+
 ### Free functions
 Functions in the global namespace are always `FunRef`, as their environment is the global namespace, which cannot be 
 consumed, and cannot be mutated (this would be inherently unsafe).
 
-### Closures
-Closures' types are slightly more complicated due to potential environment capture. See [capture types]() for more 
-detailed information on determining the type of captures.
+### Lambdas & Closures
+Lambdas' types are slightly more complicated due to potential environment capture. See
+[lambdas](9-1-Lambdas-High-Order-Functions.md) for more detailed information on determining the type of captures.
+
+## Function operators
+For functions that return `Bool` values, the classes `std.ops.And`, `std.ops.Or` and `std.ops.Not` are superimposed, 
+allowing for functions to be combined for easier chaining. For example, given functions `foo` and `bar` that return
+`Bool` values, the function `let baz = foo && bar` combines the functions into a single function that returns 
+logical and of the 2 functions.
+
+Here are the superimpositions for the 3 operators:
+
+```s++
+sup [Out: Bool, ..Args] And on Fun[Out, (Args)] {
+    fun and(self, that: Self) -> Self {
+        ret fun(args: Args) -> Bool { ret self(args) && that(args) }
+    }
+}
+
+sup [Out: Bool, ..Args] Or on Fun[Out, (Args)] {
+    fun or(self, that: Self) -> Self {
+        ret fun(args: Args) -> Bool { ret self(args) || that(args) }
+    }
+}
+
+sup [Out: Bool, ..Args] Not on Fun[Out, (Args)] {
+    fun not(self) -> Self {
+        ret fun(args: Args) -> Bool { ret self(args).not() }
+    }
+}
+```
+
+## Function overloading
+Functions can be overloaded with the same identifier, but different parameter types. The compiler will use [AST 
+Reduction](#ast-reduction) to create a mock class and superimpose the correct `Fun[Ref|Mut|Mov]` class over the mock
+class. This allows for functions to be overloaded, and for the correct function to be called at the call site.
+
+Function parameter types and count can be overloaded for functions. The return type cannot be overloaded, as all 
+type information comes on the right-hand-side of the expression, so the compiler would not know which overload is 
+required, without specifying generics of the entire function which would then render automatic overload resolution 
+obsolete anyway.
+
+Parameter names and order cannot be overloaded, because argument names are not required, so specifying only values 
+for the arguments would not be enough to determine which overload to call. The mutability and conventions of 
+parameters cannot be overloaded either.
+
+## Function recursion
+Function recursion is supported, and all recursive functions are re-written to be tail call recursive. This allows 
+for the tail call optimization to be applied to all recursive functions, and allows for infinite recursion to be 
+used without stack overflow; the limiter becomes time rather than space, as the stack frame is replaced with the 
+new stack frame, rather than a new one being created and added.
+
+## Calling functions
+
+## Partial functions
