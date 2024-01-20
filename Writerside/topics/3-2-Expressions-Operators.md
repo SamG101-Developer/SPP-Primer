@@ -1,6 +1,7 @@
 # 3.2. Expressions &amp; Operators
 
 ## Expressions
+### 
 
 ## Operators
 S++ has a large number of operators, which allow for increased readability and minimalism in code. There are binary 
