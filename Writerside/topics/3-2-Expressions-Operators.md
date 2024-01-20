@@ -4,7 +4,7 @@
 
 ## Operators
 S++ has a large number of operators, which allow for increased readability and minimalism in code. There are binary 
-operators, postfix operators, but no unary operators (with 1 minor exception mentioned later).
+operators, postfix operators, but no unary operators (with one minor exception mentioned later).
 
 ### Binary operators
 | Operator | Name                            | Class                  | Precedence |
@@ -56,3 +56,72 @@ The precedence of binary operators is a lot simpler than other languages, meanin
 logical operators are short-circuiting too, optimizing code. All operators, except `**` are evaluated left-to-right, 
 and the precedence issue found in C-derived languages, where `&` has a higher precedence than comparison operators, 
 is fixed.
+
+#### Binary comparison operator chaining
+In S++, comparison operators can be chained, simplifying code. For example, `1 < 2 < 3` is equivalent to `(1 < 2) && 
+(2 < 3)`. This feature is taken from Python, and is beneficial in simplifying code and improving readability. The 
+comparison operators that can be chained are: `==`, `!=`, `>`, `<`, `>=`, `<=`. Note that `<=>` and `is` are not 
+included, despite being usable for comparison.
+
+#### Binary operator overloading
+Operator overloading works similarly to in Rust, where the operator is a function. Classes have generic parameters 
+so that the `RHS` and `Out` types can be specified (but default to `Self`), and unique overloads per types being 
+operated on can be created. For example, to make a `Vec3D` class add-able to itself, and return another `Vec3D`, the 
+`std.ops.Add[Rhs=Vec3D, Out=Vec3D]` class must be superimposed on the type:
+```s++
+cls Vec3D {
+    x: F64;
+    z: F64;
+    y: F64;
+}
+
+sup Add on Vec3D {
+    fun add(self, that: Self) -> Self {
+        ret Vec3D { x=self.x + that.x, y=self.y + that.y, z=self.z + that.z };
+    }
+}
+```
+
+### Postfix operators
+There are 3 postfix operators in S++:
+
+| Postfix Operator | Name                   | Description                                                                               |
+|------------------|------------------------|-------------------------------------------------------------------------------------------|
+| `(...)`          | `FunMov` function call | Consume the environment of a function, and call it with the specified arguments.          |
+| `(...)`          | `FunRef` function call | Immutably borrow the environment of a function, and call it with the specified arguments. |
+| `(...)`          | `FunMut` function call | Mutably borrow the environment of a function, and call it with the specified arguments.   |
+| `{...}`          | Object instantiation   | Instantiate an object, setting attribute and super-class values to the specified values.  |
+| `.`              | Member access          | Access a member of an object.                                                             |
+| `?`              | Early return           | If the expression is residual and in the fail state, return the wrapped fail value.       |
+
+#### Postfix operator overloading
+The only postfix operators that can be overloaded are the `Fun[Ref|Mut|Mov]` function call operators. These are 
+overloaded in the same way as binary operators, but the methods have different signatures. The following example 
+shows how to make a `Vec3D` class callable with a certain signature:
+```s++
+cls Vec3D {
+    x: F64;
+    z: F64;
+    y: F64;
+}
+
+sup FunMut[Void, (Str, Str, Str)] on Vec3D {
+    fun call_ref(&mut self, x: Str, y: Str, z: Str) -> Void {
+        self.x = F64.from(x);
+        self.y = F64.from(y);
+        self.z = F64.from(z);
+    }
+}
+
+fun main() -> Void {
+    let v = Vec3D { x=0.0, y=0.0, z=0.0 };
+    v("1.0", "2.0", "3.0");
+    std.assert(v.x == 1.0);
+}
+```
+
+### Unary operators
+There are no unary operators like `!`, `--`, `++` etc. Instead, methods are preferred as they are a lot more 
+readable. For example, `loop !some_expression().value.is_some() { ... }` is a lot less readable than `loop
+some_expression().value.is_some().not() { ... }`. This also encourages the left-to-right reading of expressions too. 
+There is the case where [asynchronous function calls]() are made with `async <expr>`, but this isn't an operator.
