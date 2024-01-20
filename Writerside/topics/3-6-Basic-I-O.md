@@ -1,3 +1,0 @@
-# 3.6. Basic I/O
-
-Start typing here...

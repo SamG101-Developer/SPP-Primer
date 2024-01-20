@@ -1,3 +1,3 @@
-# 3.4. Functions
+# 3.3. Functions
 
 Start typing here...

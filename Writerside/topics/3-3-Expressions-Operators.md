@@ -1,3 +1,0 @@
-# 3.3. Expressions &amp; Operators
-
-Start typing here...
