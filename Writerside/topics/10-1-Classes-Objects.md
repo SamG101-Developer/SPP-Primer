@@ -1,3 +1,73 @@
-# 10.1. Classes &amp; Objects
+# 10.1. Classes & Objects
+S++ has a unique class system that is inspired by Rust, but simplified and made more flexible. Classes have 
+different blocks for state and behavior. The `cls` block, used to define a class, contains the state only; this is a 
+list of attributes and their types. The `sup` blocks are used to define behavior over a class: methods, typedefs, 
+inheritance etc -- see [superimposition]() for more information. Because classes are types, they must have a 
+`PascalCase` name.
 
-Start typing here...
+## Class declaration
+Classes are declared using the `cls` keyword, followed by the name of the class. The class name must be in 
+`PascalCase`. The name is then optionally followed by a list or generic parameters required by the class and a block 
+of constraints in a `where` block. The body of the class is then defined in a block. The class block contains a list 
+of attributes and their types.
+
+#### Class declaration example
+```s++
+cls Vector3D[T: Copy] {
+    x: T
+    y: T
+    z: T
+}
+```
+
+### Class attributes
+Class attributes have a name and type. Because the name is a regular identifier (variable), it must be in snake_case.
+
+## Forward declaration
+Because the S++ compiler performs a "pre-pass", the symbols are already loaded in before any analysis begins. This 
+means that the order of definitions doesn't matter, meaning there is no point in including any type of syntax for 
+forward declarations. Declaring the same type twice will therefore result in an error.
+
+## Superimposition
+The behavior of a class is defined in 1 or more `sup` block. There are 2 different types of `sup` blocks; a "normal" 
+`sup` block, and an "inheritance" `sup` block. Normal sup blocks are used to superimpose methods and typedefs over a 
+class, and inheritance sup blocks are used to superimpose a class over another class. The inheritance sup block is
+discussed in [inheritance](10-2-Inheritance-Polymorphism.md).
+
+Superimposition provides a clear and organized way to define behaviour over classes, separated into as many sections as 
+needed. Even classes from other modules can be superimposed onto or with.
+
+#### Superimposition example
+```s++
+cls Foo {
+    a: I32
+    b: I32
+}
+
+sup Foo {
+    use Str as In
+
+    fun foo(&self, s: Self.In) -> Void { ... }
+    fun bar(&self, s: Self.In) -> Void { ... }
+    fun baz(&self, s: Self.In) -> Void { ... }
+}
+```
+
+### Optional superimposition
+Superimposition over classes with generic parameters can be optional by using constraints. This allows certain 
+methods to be defined on a class only if it's generic parameters meet certain constraints. This is useful for defining 
+methods that only work on certain types, for example, optionals or copyables, etc.
+
+#### Optional superimposition example
+This example defined a method called `special_copy` that only exists on `Foo` classes if `T` superimposes `Copy` 
+itself (force by the generic constraint on `T` in the `sup` block declaration).
+```s++
+cls Foo[T] {
+    a: T
+    b: T
+}
+
+sup [T: Copy] Foo[T] {
+    fun special_copy(&self) -> Self { ... }
+}
+```
