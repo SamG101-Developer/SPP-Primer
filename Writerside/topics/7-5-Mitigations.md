@@ -1,3 +1,0 @@
-# 7.5. Mitigations
-
-Start typing here...
