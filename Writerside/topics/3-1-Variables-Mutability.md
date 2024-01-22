@@ -61,8 +61,8 @@ fun main() -> Void {
 
 ### Struct variable declaration
 ```s++
-let Point {x, y} = Point {x=1, y=2}
-let Point {a, b}: Point
+let Point(x, y) = Point(x=1, y=2)
+let Point(a, b): Point
 ```
 
 | Variable | Type     | How type is determined                      |
@@ -88,9 +88,9 @@ marked as mutable.
 #### Variable mutability example:
 ```s++
 fun main() -> Void {
-    let mut x = 1                            # x is mutable
-    let (mut x, y) = (1, 2)                  # x is mutable, y is immutable
-    let Point {mut x, y} = Point {x=1, y=2}  # x is mutable, y is immutable
+    let mut x = 1                          # x is mutable
+    let (mut x, y) = (1, 2)                # x is mutable, y is immutable
+    let Point(mut x, y) = Point(x=1, y=2)  # x is mutable, y is immutable
 }
 ```
 

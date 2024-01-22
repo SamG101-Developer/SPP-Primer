@@ -78,7 +78,7 @@ cls Vec3D {
 
 sup Add on Vec3D {
     fun add(self, that: Self) -> Self {
-        ret Vec3D { x=self.x + that.x, y=self.y + that.y, z=self.z + that.z };
+        ret Vec3D(x=self.x + that.x, y=self.y + that.y, z=self.z + that.z);
     }
 }
 ```
@@ -115,7 +115,7 @@ sup FunMut[Void, (Str, Str, Str)] on Vec3D {
 }
 
 fun main() -> Void {
-    let v = Vec3D { x=0.0, y=0.0, z=0.0 };
+    let v = Vec3D(x=0.0, y=0.0, z=0.0);
     v("1.0", "2.0", "3.0");
     std.assert(v.x == 1.0);
 }
