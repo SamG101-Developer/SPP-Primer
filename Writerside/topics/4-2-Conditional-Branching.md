@@ -72,7 +72,7 @@ case person
 else { "hello stranger" }
 ```
 
-## Multiple conditions
+#### Multiple conditions
 ```s++
 case person
     == john | jane { "hello john or jane" }
@@ -80,7 +80,7 @@ case person
 else { "hello stranger" }
 ```
 
-## Unrelated conditions
+#### Unrelated conditions
 ```s++
 case true {
     func1().attribute1 > 4 { "func1 returned true" }
