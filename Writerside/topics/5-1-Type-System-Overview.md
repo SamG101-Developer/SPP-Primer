@@ -1,3 +1,6 @@
 # 5.1. Type System Overview
 
-Start typing here...
+- Static
+- Strong
+- Linear
+- Nominal
