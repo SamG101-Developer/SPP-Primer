@@ -28,10 +28,14 @@ only used for critical stack frames, and applied with the [`stack_frame` annotat
 #### Stack frame chaining (secure function calls)
 
 #### Stack exhaustion
+The stack canary is checked before the stack frame is popped, and if it has been modified, the program is terminated.
+This will never result from array allocation on the heap (use the Alloc class for this).
 
 #### Shadow stacks
-
-#### Stack overflow / underflow detection
+Shadow stacks are used to store the return addresses of functions, and are checked when a function returns. If the
+return address on the shadow stack does not match the return address on the stack, then the program is terminated. 
+This is not on by default due to the performance impact, but can be activated on a per-function basis using the
+[`shadow_stack` annotation]().
 
 ### Integrity related
 

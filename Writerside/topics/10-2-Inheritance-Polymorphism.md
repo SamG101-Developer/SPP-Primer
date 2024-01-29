@@ -24,7 +24,7 @@ sup Bar {
     fun bar(&self) -> Void { ... }
 }
 
-sup Foo on Bar {
+sup Bar on Foo {
     fun foo(&self) -> Void { ... }  # overrides Bar.foo
     fun bar(&self) -> Void { ... }  # overrides Bar.bar
 }
