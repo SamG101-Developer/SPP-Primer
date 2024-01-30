@@ -1,4 +1,4 @@
-# 3.2. Expressions &amp; Operators
+# 3.2. Expressions & Operators
 
 ## Expressions
 ### 

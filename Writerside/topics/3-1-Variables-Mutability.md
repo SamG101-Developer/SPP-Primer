@@ -1,4 +1,4 @@
-# 3.1. Variables &amp; Mutability
+# 3.1. Variables & Mutability
 
 Variables are used in S++, like any other programming language, to store data. A variable has a type, which is 
 always fully inferred if the variable is given a value at declaration. Otherwise, the type must be specified. 
