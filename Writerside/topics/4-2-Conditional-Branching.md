@@ -4,7 +4,8 @@ S++ re-invents "condition branching" by combining a standard "if", "match" and "
 structure. This improves the simplicity of the language and provides 1 way to do all conditional branching. The 
 branching expression is named the "case" expression.
 
-### How to use the "case" expression
+## How to use the "case" expression
+### Patterns
 #### Basic
 ```s++
 case person then
