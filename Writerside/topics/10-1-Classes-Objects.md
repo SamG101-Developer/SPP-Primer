@@ -22,6 +22,12 @@ cls Vector3D[T: Copy] {
 
 ### Class attributes
 Class attributes have a name and type. Because the name is a regular identifier (variable), it must be in snake_case.
+Attributes can also be assigned default values, with the `x: Str = ""` syntax. The type of the attribute, like with
+optional parameters, must still be specified, even though it can be inferred from the default value. This is to enforce
+consistency and readability, and if the default value is removed, no other changes must be made.
+
+Whilst the `Default` type can be superimposed over a class, it is not a compiler-known class, and doesn't have any extra
+semantics.
 
 ## Forward declaration
 Because the S++ compiler performs a "pre-pass", the symbols are already loaded in before any analysis begins. This 
