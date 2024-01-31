@@ -1,3 +1,0 @@
-# 4.4. Contextual Blocks
-
-Start typing here...

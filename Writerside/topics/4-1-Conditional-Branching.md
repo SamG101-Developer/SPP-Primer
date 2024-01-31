@@ -1,4 +1,4 @@
-# 4.2. Conditional Branching
+# 4.1. Conditional Branching
 
 S++ re-invents "condition branching" by combining a standard "if", "match" and "ternary" expression all into 1 
 structure. This improves the simplicity of the language and provides 1 way to do all conditional branching. The 

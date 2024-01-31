@@ -46,26 +46,26 @@ keyword, to declare a mutable variable. It can also be used to declare a mutable
 ## Control Flow Keywords
 
 #### `case`
-The `case` keyword is used to declare a [conditional branching block](4-2-Conditional-Branching.md), otherwise known as
+The `case` keyword is used to declare a [conditional branching block](4-1-Conditional-Branching.md), otherwise known as
 the traditional `if` expression. The keyword `case` was chosen to keep consistent keyword length with other control flow
-keywords. The `case` condition is followed by a number of [pattern blocks](4-2-Conditional-Branching.md#patterns).
+keywords. The `case` condition is followed by a number of [pattern blocks](4-1-Conditional-Branching.md#patterns).
 
 #### `else`
 The `else` keyword can be used in a few different situations. It can be used in
-[condition branching](4-2-Conditional-Branching.md) to declare the "else" branch, which will be executed if none of the
-other branches are executed. It can also be used in a [loop](4-3-Conditional-Looping.md) to declare the "else" branch,
+[condition branching](4-1-Conditional-Branching.md) to declare the "else" branch, which will be executed if none of the
+other branches are executed. It can also be used in a [loop](4-2-Conditional-Looping.md) to declare the "else" branch,
 which will be executed if the condition of the `loop` expression is already false. The final use is in object
 initializer expressions, where it is used to declare the default value of an object, to fill in attributes that don't
 have default values given.
 
 #### `loop`
-The `loop` keyword is used to declare a [conditional loop](4-3-Conditional-Looping.md), otherwise known as the
+The `loop` keyword is used to declare a [conditional loop](4-2-Conditional-Looping.md), otherwise known as the
 traditional `while` loop. The keyword `loop` was chosen to keep consistent keyword length with other control flow
 keywords. The `loop` expression can be followed by an `else` block, which will be executed if the condition of the
 `loop` expression is already false.
 
 #### `with`
-The `with` keyword is used to declare a [context block](4-4-Contextual-Blocks.md), taken from Python. The `with` keyword
+The `with` keyword is used to declare a [context block](4-3-Contextual-Blocks.md), taken from Python. The `with` keyword
 must be followed with an expression whose inferred type superimposes the `std.Ctx` type. On entering the block, the
 `.enter()` method is called on the value, and on exiting the block, the `.exit()` method is called on the value.
 

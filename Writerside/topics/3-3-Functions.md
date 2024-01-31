@@ -236,6 +236,15 @@ Parameter names and order cannot be overloaded, because argument names are not r
 for the arguments would not be enough to determine which overload to call. The mutability and conventions of 
 parameters cannot be overloaded either.
 
+## Function overloading resolution
+There are a number of checks that occur in order to detect the correct overload. These are:
+1. Infer any generics from constraints or parameter types.
+2. Inject "self" argument if the function is a non-static instance.
+3. Check for any non-matching argument/parameter names for this overload.
+4. Check that there are enough parameters left over for number of arguments.
+5. Give each "normal" argument a name from the leftover parameters.
+6. Check that each argument's convention & type matches the parameter's convention & type.
+
 ## Function recursion
 Function recursion is supported, and all recursive functions are re-written to be tail call recursive. This allows 
 for the tail call optimization to be applied to all recursive functions, and allows for infinite recursion to be 
@@ -243,5 +252,23 @@ used without stack overflow; the limiter becomes time rather than space, as the 
 new stack frame, rather than a new one being created and added.
 
 ## Calling functions
+Functions and methods are called with parenthesis around the group of arguments. Arguments can be
+[normal](#normal-arguments) or [named](#named-arguments), and can have a convention attached to them.
+
+### Named arguments
+Named arguments are arguments that are specified with a name, followed by a `=`, followed by an expression. When
+overload resolution is taking place, any function overloads that don't have parameters with the argument names are
+disregarded.
+
+### Normal arguments
+Normal arguments are just an expression. During function overload resolution, if a candidate function is being
+considered based on the [named arguments](#named-arguments), then the normal arguments are then named against the rest
+of the parameters, in order left to right. If the convention- & type-checking is successful, then the overload candidate
+can be considered for the final overload resolution.
 
 ## Partial functions
+Partial functions are functions that have some parameters omitted. This is useful for creating functions that are
+partially applied, and can be used in higher order functions. Partial functions can be created in a couple of ways.
+Either a [lambda](9-1-Lambdas-High-Order-Functions.md#lambdas) can be created where the
+[captures](9-1-Lambdas-High-Order-Functions.md#captures) are the fixed parameters, or `_` tokens can be used as
+placeholders. Note that for overloaded functions, this could lead to ambiguities because `_` doesn't have a type.

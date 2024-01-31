@@ -1,4 +1,4 @@
-# 4.3. Conditional Looping
+# 4.2. Conditional Looping
 
 Conditional looping is done with the `loop` expression. There is no `for` loop in S++; instead, interior iteration is
 done with the streaming API, using generators. The `loop` expression is modelled as an expression, but cannot be used

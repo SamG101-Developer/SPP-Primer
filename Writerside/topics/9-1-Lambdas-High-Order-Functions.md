@@ -15,6 +15,7 @@ fun main() -> Void {
 ```
 
 ## Closures
+### Captures
 Lambdas become closures when they capture environment variables. In S++, capturing environment variables is explicit, 
 unlike Rust. This means each variable, and _how_ its being captured, must be specified. How a variable is captured 
 is based on the convention used to capture it, which are the same as
