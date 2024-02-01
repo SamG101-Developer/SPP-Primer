@@ -83,6 +83,17 @@ sup Add on Vec3D {
 }
 ```
 
+#### Equality
+The `==` operator has two different uses, that are hidden by the language, and make the language a lot easier to use.
+The first usage is for owned object: comparing, structurally, that they are the same. This by default applies the `==`
+operator recursively through the object, calling `==` on each member. A custom `==` method can be defined to override
+this behaviour, by superimposing `std.ops.Eq`.
+
+The second usage is for reference types, where the `==` operator is used to compare two borrows. This is done by
+comparing the addresses pointed to. Owned objects cannot be compared to borrows, because the types are different. If
+this is absolutely necessary, then the `.clone()` method can be called on the borrow to create an owned object copy,
+which can then be compared.
+
 ### Postfix operators
 There are 3 postfix operators in S++:
 
