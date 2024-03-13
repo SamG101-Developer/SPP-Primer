@@ -1,19 +1,21 @@
 # 5.2. Primitive Types
 
-In S++, there are no primitive types. All types are first-class, and can be used as types for variables, attributes
-and parameters etc. This allows the language to remain orthogonal, and prevents any unintended interactions between
+In S++, there are no primitive types. All types are first-class, and can be used as types for variables, attributes, and
+parameters, etc. This allows the language to remain orthogonal, and prevents any unintended interactions between
 different features.
 
 There are some types in S++ that _mock_ primitive types, and connect to LLVM types, allowing for the compiler to
 generate efficient code. These types are as follows:
 
 ## Numeric types
+
 The numeric types in S++ have 3 different classes of types: unsigned integers, signed integers, and floating point.
 All of these allow from `8` to `256` bits, allowing for micro optimization of memory usage. None of these types are
-instantiable, directly -- use the [numeric postfix literals]() to create instances of these types. The types are as
+instantiable, directly; the [numeric postfix literals]() are used to create instances of these types. The types are as
 follows:
 
 ### Numeric type classes:
+
 #### Unsigned Integers
 
 | Type   | Size (bits) | Min | Max     | Precision | Description              |
@@ -48,12 +50,14 @@ follows:
 | `F256` | 256         | -2^255 | 2^255-1  | 255 bits  | Signed 256-bit float |
 
 ### Instantiating numeric types
+
 Numeric literals allow for type postfixes to be used to specify the type of the literal. The postfixes follow the
 regex `_[U|I|F][8|16|32|64|128|256]`, where the first character is the type class, and the second character is the
 size of the type. For example, `1_U8` is an unsigned 8-bit integer, and `1_I64` is a signed 64-bit integer. If no
 literal is used, the smallest numeric type **is not used**, instead either [`BigNum`]() or [`BigDec`]() is used.
 
 ## Boolean type
+
 The `Bool` type is the boolean type in S++, which certain expressions must evaluate to, for example in `loop`
 expression conditions, or `case` expression conditions (when applied to with patterns). The `Bool` type has 2 values:
 `true` and `false` -- the `Bool` type itself isn't instantiable.
@@ -63,7 +67,8 @@ instead directly encoded into the instructions that use them. Semantically, they
 [superimposed]() on them. The `Bool` type is mapped to the LLVM `bool` type.
 
 ## Void type
-The `Void` is the only type that has no instances. This is because it is a "nothing" type, and can not be used for 
-variables or attributes. It represents the absence of a value, and is used as the return type of functions that 
-don't return a value. A `Void` parameter doesn't take a value; this is needed for when a generic argument is `Void`, 
+
+The `Void` is the only type that has no instances. This is because it is a "nothing" type, and can not be used for
+variables or attributes. It represents the absence of a value, and is used as the return type of functions that
+don't return a value. A `Void` parameter doesn't take a value; this is needed for when a generic argument is `Void`,
 and the corresponding generic parameter is used as a parameter type.
