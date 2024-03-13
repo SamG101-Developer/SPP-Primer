@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  INSTANCE: "Writerside"
+  INSTANCE: "Writerside/hi"
   ARTIFACT: "SPP-Primer.zip"
   DOCKER_VERSION: "233.14389"
 
