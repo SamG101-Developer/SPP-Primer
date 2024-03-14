@@ -5,9 +5,9 @@ The concurrency mechanism in S++ is based on coroutines, which are the same as g
 Coroutines are functions that can be suspended and resumed, and in S++ is formed by any normal function containing a 
 `gen` expression, used for yielding values.
 
-Coroutines must return the `Gen[Yield, Return=Void, Send=Void]` type. This type is a generic type, with the `Yield`
-parameter being the type of the values yielded by the coroutine, the `Return` parameter being the type of the value
-returned by the coroutine, and the `Send` parameter being the type of the value being sent to the coroutine.
+Coroutines must return the `Gen[Mov|Ref|Mut][Yield, Return=Void, Send=Void]` type. This type is a generic type, with the
+`Yield` parameter being the type of the values yielded by the coroutine, the `Return` parameter being the type of the
+value returned by the coroutine, and the `Send` parameter being the type of the value being sent to the coroutine.
 
 Coroutines are generators in S++, but are not necessarily asynchronous. See
 [asynchronous function](11-1-Asynchronous-Functions.md) for more information.
@@ -20,6 +20,11 @@ coroutine's return type.
 
 Yielded values can be borrows, because control will always return to the coroutine, guaranteeing that the value will
 still be valid.
+
+All yields from a coroutine must follow the same convention (move, reference, or mutable reference), and the convention
+is based on the variant of the `Gen` type being used. For example if `GenRef` is being used, then all yields must use
+the `&` immutable borrow convention. This is similar to the `Fun[Mov|Ref|Mut]` function types whose variant depicts the
+convention of the environment capture.
 
 ### Returning from a coroutine
 Coroutines can return a value using the `ret` keyword. This will prevent the `.next()` method from being called from 
