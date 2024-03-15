@@ -1,4 +1,4 @@
-# 6.5. Tuples
+# 6.4. Tuples
 
 Tuples are first-class objects, like in Rust.
 

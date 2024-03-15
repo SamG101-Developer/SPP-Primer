@@ -39,4 +39,4 @@ the code.
 
 Arrays are the lowest level collection in S++, and are completely safe to use. See [Arrays](6-1-Arrays.md) for more.
 
-Tuples are first-class objects, like in Rust. See [Tuples](6-5-Tuples.md) for more.
+Tuples are first-class objects, like in Rust. See [Tuples](6-4-Tuples) for more.
