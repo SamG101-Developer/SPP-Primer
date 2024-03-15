@@ -4,7 +4,7 @@
 
 S++ is a new programming language designed to be a modern, safe, and fast systems programming language, with
 a focus on performance and readability. It has a strong type system, and an ownership model based on second-class
-borrows and the Law of Exclusivity, allowing for safe programming without a garbage collector.
+borrows, the Law of Exclusivity, and ownership tracking, allowing for safe programming without a garbage collector.
 
 There are concepts from other languages, (Rust, C++, Python, Go, Java) that flow through S++, as well as some features
 not found in other languages. The safety mechanisms are inspired by Rust, but with second-class borrows, meaning that

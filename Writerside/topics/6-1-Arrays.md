@@ -10,16 +10,16 @@ types to be declared on the lhs, for an empty array the type is included in the 
 #### Array syntax example (literal)
 ```s++
 fun main() -> Void {
-    let x = [1, 2, 3]  # x: Arr[BigNum]
-    let y = [Str]      # y: Arr[Str]
+    let x = [1, 2, 3]  # x: Arr[BigNum] (size: 3)
+    let y = [Str]      # y: Arr[Str]    (size: 0)
 }
 ```
 
 #### Array syntax example (method)
 ```s++
 fun main() -> Void {
-    let x = Arr.new(1, 2, 3)  # x: Arr[BigDec]
-    let y = Arr[Str].new()    # y: Arr[Str]
+    let x = Arr.new(1, 2, 3)  # x: Arr[BigDec] (size: 3)
+    let y = Arr[Str].new()    # y: Arr[Str]    (size: 0)
 }
 ```
 
@@ -40,5 +40,6 @@ sup [T] Arr[T] {
     fun len(&self) -> U256 { ... }
 }
 ```
+
 Other classes are superimposed onto `Arr[T]` to provide the rest of the API. The `Arr[T]` type is a wrapper around a
 C array, which is stack allocated.

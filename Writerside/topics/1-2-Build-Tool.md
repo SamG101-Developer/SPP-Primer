@@ -1,7 +1,7 @@
 # 1.2. Build Tool
 
 The build tool `S++` uses is called `spp`. It is a command line tool that can be used to compile and run S++ 
-programs. The Intellij program will call the `spp` command line tool to compile and run S++ programs. The `spp` tool 
+programs. The Intellij plugin will call the `spp` command line tool to compile and run S++ programs. The `spp` tool 
 required the `build.toml` script, that is located in the root directory of the project, sibling to the `src` 
 directory. The build script contains a simple set of rules for the `spp` tool to follow when compiling and running
 
