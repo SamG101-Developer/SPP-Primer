@@ -1,4 +1,4 @@
-# 7.2 Ownership
+# 7.2. Ownership
 
 In S++, "ownership tracking" is a core feature of memory management. It ensures that only fully initialized objects are
 used, mitigating common memory errors on C++ such as "double free" and "use after free". Objects that are uninitialized,
