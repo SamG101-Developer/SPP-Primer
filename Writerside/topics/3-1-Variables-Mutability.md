@@ -12,13 +12,6 @@ no value is given, the type must be specified. Note that a variable that isn't g
 is given a value with an [assignment](3-2-Expressions-Operators.md). Within variables-with-values, there are 3
 different ways to declare a variable: single, tuple, and struct.
 
-## Scope of a variable
-
-A variable is only accessible within the scope it has been declared in. The "scope" is determined by the closest
-binding `{ }` block. Static variables do not exist in S++, meaning class variables are always unique to the instance
-they are defined in. Global variables can be defined but only mutably in S++. Global variables must be initialized on
-definition, and can be accessed from any scope. They cannot be moved, mutably borrowed or partially moved from.
-
 ### Single variable declaration
 
 ```s++
@@ -88,14 +81,14 @@ let Point(a, b): Point
 
 - **TODO**
 
-### Mutability of a variable
+## Mutability of a variable
 
 Whenever a variable is declared, it is immutable by default. Immutability by default is a feature taken from Rust,
 and allows for safer programming, as there is it prevents unexpected and accidental changes to variables. To make a
 variable mutable, the `mut` keyword must be used with the `let` keyword. Tuple and struct parts must be individually
 marked as mutable.
 
-#### Variable mutability example:
+### Variable mutability example:
 
 ```s++
 fun main() -> Void {
@@ -105,7 +98,7 @@ fun main() -> Void {
 }
 ```
 
-#### Parameter mutability example:
+### Parameter mutability example:
 
 ```s++
 fun function_name(mut x: BigNum, z: BigNum) -> Str {
@@ -114,10 +107,17 @@ fun function_name(mut x: BigNum, z: BigNum) -> Str {
 }
 ```
 
+## Scope of a variable
+
+A variable is only accessible within the scope it has been declared in. The "scope" is determined by the closest
+binding `{ }` block. Static variables do not exist in S++, meaning class variables are always unique to the instance
+they are defined in. Global variables can be defined but only mutably in S++. Global variables must be initialized on
+definition, and can be accessed from any scope. They cannot be moved, mutably borrowed or partially moved from.
+
 ## Assigning to a variable
 
 A variable can be assigned to with the `=` operator. The type of the RHS must match the type of the LHS explicitly,
-as not even automatic up-casting is used. This is to prevent accidental type conversions, which can be dangerous.
+as not even automatic up-casting is allowed. This is to prevent accidental type conversions, which can be dangerous.
 Assignment can only be performed on `mut` variables, or uninitialized variables that haven't got their first value
 assigned yet.
 
@@ -130,7 +130,7 @@ x = 2
 
 ## Re-declaring a variable
 
-Re-declaring variables is allowed, even to change the type of the variable. This is to allow for variables to keep
+Re-declaring variables is allowed, including to change the type of the variable. This is to allow for variables to keep
 the same name even after a change in type, as this can be useful for readability. Re-declaring a variable is
 essentially the same as declaring a new variable with the same name, but the old variable is removed from scope. The
 mutability of the variable can also be changed when re-declaring.

@@ -1,7 +1,27 @@
 # 3.2. Expressions & Operators
 
 ## Expressions
-### 
+### Binary expressions
+### Postfix expressions
+#### Function call
+#### Member access
+#### Early return
+### Unary expressions
+#### Async function call modifier
+### Primary expressions
+#### Literals
+#### Identifier
+#### Parenthesized expression
+#### Object instantiation
+#### Lambda expression
+#### CaseExpression
+#### LoopExpression
+#### WithExpression
+#### YieldExpression
+#### InnerScope
+#### TypeExpression
+#### Primary token expressions
+### Token expressions
 
 ## Operators
 S++ has a large number of operators, which allow for increased readability and minimalism in code. There are binary 

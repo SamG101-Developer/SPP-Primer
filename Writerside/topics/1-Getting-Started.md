@@ -44,9 +44,9 @@ the keywords being a mix of Rust and Python.
 #### Language Features
 
 - Strong, static, affine type system
-- Strong type inference
-- All types are 1st-class objects
-- Safe memory management
+- Powerful type inference
+- All types are 1st-class objects (arrays, tuples, functions, etc.)
+- Safe memory management without garbage collection
 - Superimposition-based type inheritance
 - Generics & constraints
 - Advanced pattern matching
