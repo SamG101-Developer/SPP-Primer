@@ -8,7 +8,7 @@ Arrays have the `[...]` literal that can be used to easily create arrays. Becaus
 types to be declared on the lhs, for an empty array the type is included in the array declaration:
 
 #### Array syntax example (literal)
-```s++
+```
 fun main() -> Void {
     let x = [1, 2, 3]  # x: Arr[BigNum] (size: 3)
     let y = [Str]      # y: Arr[Str]    (size: 0)
@@ -16,7 +16,7 @@ fun main() -> Void {
 ```
 
 #### Array syntax example (method)
-```s++
+```
 fun main() -> Void {
     let x = Arr.new(1, 2, 3)  # x: Arr[BigDec] (size: 3)
     let y = Arr[Str].new()    # y: Arr[Str]    (size: 0)
@@ -24,7 +24,7 @@ fun main() -> Void {
 ```
 
 ## Array API
-```s++
+```
 cls Arr[T] {
     @private data: std.c.CArr[T]
     @private len : U64

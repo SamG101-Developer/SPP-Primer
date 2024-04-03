@@ -34,7 +34,7 @@ order of the operations (left binary fold or right binary fold) depends on the s
 
 ###### Left binary fold
 
-```s++
+```
 fun main() -> Void {
     let tuple = (1, 2, 3, 4, 5)
     let sum = .. + tuple
@@ -44,7 +44,7 @@ fun main() -> Void {
 
 ###### Right binary fold
 
-```s++
+```
 fun main() -> Void {
     let tuple = (1, 2, 3, 4, 5)
     let sum = tuple + ..
@@ -76,7 +76,7 @@ folding implementation, because argument vs parameter type checking determines w
 Tuple unpacking allows for a tuple to be unpacked into multiple arguments within a function. This only calls the
 function once, but passed the tuple as multiple arguments. This works in the same way as C++'s `std::apply` function.
 
-```s++
+```
 fun function_1(x: (U8, U8, U8)) -> U8 {
     let (a, b, c) = x
     return a + b + c
@@ -101,7 +101,7 @@ Tuple destructuring allows for a tuple to be de-structured into multiple variabl
 but instead of passing the tuple as multiple arguments, it assigns each element of the tuple to a variable. Placeholders
 can be used to ignore elements of the tuple.
 
-```s++
+```
 fun main() -> Void {
     let tuple = (1, 2, 3, 5)
     
@@ -119,7 +119,7 @@ because it is the same as moving an attribute, only the attributes of tuples are
 
 #### Tuple value indexing
 
-```s++
+```
 fun main() -> Void {
     let tuple = (1, 2, 3)
     
@@ -131,7 +131,7 @@ fun main() -> Void {
 
 #### Tuple type indexing
 
-```s++
+```
 fun main() -> Void {
     use (U8, U8, U8) as TupleType
     use TupleType.0 as TupleType0

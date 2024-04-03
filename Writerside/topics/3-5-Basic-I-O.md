@@ -10,7 +10,7 @@ and `std.read` just calls `std.io.console.in`.
 ## File IO
 The FileIO revolves around the `std.io.File` class:
 
-```s++
+```
 use U8 as FileMode
 
 cls File {

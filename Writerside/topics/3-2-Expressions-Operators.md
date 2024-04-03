@@ -89,7 +89,7 @@ Operator overloading works similarly to in Rust, where the operator is a functio
 so that the `RHS` and `Out` types can be specified (but default to `Self`), and unique overloads per types being 
 operated on can be created. For example, to make a `Vec3D` class add-able to itself, and return another `Vec3D`, the 
 `std.ops.Add[Rhs=Vec3D, Out=Vec3D]` class must be superimposed on the type:
-```s++
+```
 cls Vec3D {
     x: F64;
     z: F64;
@@ -130,7 +130,7 @@ There are 3 postfix operators in S++:
 The only postfix operators that can be overloaded are the `Fun[Ref|Mut|Mov]` function call operators. These are 
 overloaded in the same way as binary operators, but the methods have different signatures. The following example 
 shows how to make a `Vec3D` class callable with a certain signature:
-```s++
+```
 cls Vec3D {
     x: F64;
     z: F64;

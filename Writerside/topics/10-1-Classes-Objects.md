@@ -12,7 +12,7 @@ of constraints in a `where` block. The body of the class is then defined in a bl
 of attributes and their types.
 
 #### Class declaration example
-```s++
+```
 cls Vector3D[T: Copy] {
     x: T
     y: T
@@ -44,7 +44,7 @@ Superimposition provides a clear and organized way to define behaviour over clas
 needed. Even classes from other modules can be superimposed onto or with.
 
 #### Superimposition example
-```s++
+```
 cls Foo {
     a: I32
     b: I32
@@ -67,7 +67,7 @@ methods that only work on certain types, for example, optionals or copyables, et
 #### Optional superimposition example
 This example defined a method called `special_copy` that only exists on `Foo` classes if `T` superimposes `Copy` 
 itself (force by the generic constraint on `T` in the `sup` block declaration).
-```s++
+```
 cls Foo[T] {
     a: T
     b: T

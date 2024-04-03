@@ -14,7 +14,7 @@ different ways to declare a variable: single, tuple, and struct.
 
 ### Single variable declaration
 
-```s++
+```
 fun main() -> Void {
     let x = 123
     let y: Str
@@ -28,7 +28,7 @@ fun main() -> Void {
 
 ### Tuple variable declaration
 
-```s++
+```
 fun main() -> Void {
     let (x, y) = (1, false)
     let (a, b): (BigNum, Str)
@@ -62,7 +62,7 @@ fun main() -> Void {
 
 ### Struct variable declaration
 
-```s++
+```
 let Point(x, y) = Point(x=1, y=2)
 let Point(a, b): Point
 ```
@@ -90,7 +90,7 @@ marked as mutable.
 
 ### Variable mutability example:
 
-```s++
+```
 fun main() -> Void {
     let mut x = 1                          # x is mutable
     let (mut x, y) = (1, 2)                # x is mutable, y is immutable
@@ -100,7 +100,7 @@ fun main() -> Void {
 
 ### Parameter mutability example:
 
-```s++
+```
 fun function_name(mut x: BigNum, z: BigNum) -> Str {
     # x is mutable
     # y is immutable
@@ -123,7 +123,7 @@ assigned yet.
 
 ### Assignment example:
 
-```s++
+```
 let mut x = 1
 x = 2
 ```
@@ -137,7 +137,7 @@ mutability of the variable can also be changed when re-declaring.
 
 ### Re-declaration example:
 
-```s++
+```
 fun main() -> Void {
     let x = 1
     let x = Str.from(x)  # x is now a Str
@@ -153,7 +153,7 @@ ended, the original variable is used again. This is useful for re-using variable
 
 ### Shadowing example #1:
 
-```s++
+```
 fun main() -> Void {
     let x = 1
     {
@@ -166,7 +166,7 @@ fun main() -> Void {
 
 ### Shadowing example #2:
 
-```s++
+```
 fun main() -> Void {
     let mut x = 1
     {

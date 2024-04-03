@@ -7,7 +7,7 @@ S++ supports lambdas (anonymous functions), using a very similar syntax to norma
 - Lambdas can capture environment variables (making them closures)
 
 #### Lambda syntax example
-```s++
+```
 fun main() -> Void {
     let x = fun (a: Str, b: Str) -> Str { ret a + b }
     std.assert(x("Hello, ", "World!") == "Hello, World!")
@@ -27,7 +27,7 @@ captures capture a variable (single identifier), and named captures allow aliasi
 variables.
 
 ### Closure syntax example
-```s++
+```
 fun main() -> Void {
     let x = 1
     let y = 2

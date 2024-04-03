@@ -8,7 +8,7 @@ Inheritance is done by using the `sup` keyword, followed by the name of the clas
 the `on` keyword, and then the type being superimposed onto.
 
 ### Inheritance example#
-```s++
+```
 cls Foo {
     a: I32
     b: I32

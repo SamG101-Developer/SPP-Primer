@@ -2,7 +2,7 @@
 
 #### Simple `hello world` example, in `main.spp`:
 
-```s++
+```
 mod main
 
 fun main() -> Void {

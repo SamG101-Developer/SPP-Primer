@@ -43,7 +43,7 @@ Function conversion allows for functions to be first class objects by not creati
 for them. Also, as callable objects can be created by superimposing a `Fun___` class over a function, it makes sense to
 treat normal functions like this, creating one way to call functions.
 
-```s++
+```
 fun function(a: Str, b: Str) -> Str {
     ret a + b
 }
@@ -53,7 +53,7 @@ fun function(a: U64, b: U64) -> U64 {
 }
 ```
 
-```s++
+```
 cls MOCK_function { }
 
 sup FunRef[Str, (Str, Str)] on MOCK_function {

@@ -8,10 +8,10 @@ language.
 Functions are declared using the `fun` keyword, followed by the function name, a list of generic parameters, a list 
 of parameters, a return type, and optional generic constraints.
 
-```s++
+```
 fun foo(a: Str, b: Str) -> Str { ... }
 ```
-```s++
+```
 @public(for="some/path/to/file.spp")
 @inline(when="release")
 fun foo[T, U: Copy](a: T, b: U) -> Void where [T: Add[Rhs=U]] { ... }
@@ -23,13 +23,13 @@ There is an intermediary stage in the compilation process called
 superimposed over the type. This also supports overloading:
 
 #### Original function declarations:
-```s++
+```
 fun foo(a: Str) -> Void { ... }
 fun foo(a: BigNum) -> Void { ... }
 ```
 
 #### AST reduced function declarations:
-```s++
+```
 cls __Mock_foo {}
 
 sup FunRef[Void, (Str)] on __Mock_foo {
@@ -68,7 +68,7 @@ parameter: it is always `Self`. The convention dictates how the environment of t
 Required parameters are parameters that must be specified when calling a function. They are declared by simply 
 declaring a parameter with a type annotation. Here, `a` and `b` are required parameters:
 
-```s++
+```
 fun foo(a: Str, b: Str) -> Void { ... }
 ```
 
@@ -84,7 +84,7 @@ optional parameter default values.
 
 In the following example, `b` is an optional parameter:
 
-```s++
+```
 fun foo(a: Str, b: Str = "default") -> Void { ... }
 ```
 
@@ -146,14 +146,14 @@ may still be required, though, if it is not the final statement in the method (i
 Only owned values may be returned. This is explained in [2nd class borrows]() in more detail.
 
 #### Returning a single value:
-```s++
+```
 fun foo() -> Str {
     ret "Hello, world!";
 }
 ```
 
 #### Returning multiple values wrapped in a tuple:
-```s++
+```
 fun foo() -> (Str, Str) {
     ret ("Hello", "world");
 }
@@ -202,7 +202,7 @@ logical and of the 2 functions.
 
 Here are the superimpositions for the 3 operators:
 
-```s++
+```
 sup [Out: Bool, ..Args] And on Fun[Out, (Args)] {
     fun and(self, that: Self) -> Self {
         ret fun(args: Args) -> Bool { ret self(args) && that(args) }

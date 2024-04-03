@@ -13,7 +13,7 @@ If the condition of a `loop` block is false before the first iteration, the `els
 This allows for cleaner code:
 
 #### Without `while-else` block:
-```s++
+```
 case condition == then
     true {
         loop condition { ... }
@@ -22,7 +22,7 @@ else { ... }
 ```
 
 #### With `while-else` block:
-```s++
+```
 loop condition { ... }
 else { ... }
 ```
