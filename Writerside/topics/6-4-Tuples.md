@@ -1,20 +1,28 @@
 # 6.4. Tuples
 
-Tuples are first-class objects, like in Rust.
+Tuples are first-class objects, like in Rust. They are unnamed classes, and instantiated like a class, but without a
+class name or attribute names. Instead of `let x = Vec(x=1, y=2, z=2)`, it is `let x = (1, 2, 3)`. Items are accessible
+via the special [indexing](#indexing) operation, as items are always unnamed.
 
-## Type Syntax
-
-Tuples have a special type syntax, which is a comma-separated list of types surrounded by parentheses. For example, the
-type `(Str, Bool)` is a tuple of a `Str` and a `Bool`. This is the same as in Rust. Tuple types map to the `std.Tup[Ts]`
-class.
-
-## Tuple Literals
+Tuples types have a special shorthand type syntax, which is a comma-separated list of types surrounded by parentheses.
+For example, the type `(Str, Bool)` is a tuple of a `Str` and a `Bool`. This is the same as in Rust. Tuple types map to
+the `std.Tup[..Ts]` class. The tuple type mirrors the value declaration syntax for a tuple, with a minor exception being
+1-tuple values requiring the extra trailing comma.
 
 | Number of Elements | Tuple Value | Tuple Type         | Mapped To                 |
 |--------------------|-------------|--------------------|---------------------------|
 | 0                  | `()`        | `()`               | `std.Tup[]`               |
 | 1                  | `(1,)`      | `(BigNum)`         | `std.Tup[BigNum]`         |
 | 2                  | `(1, 2)`    | `(BigNum, BigNum)` | `std.Tup[BigNum, BigNum]` |
+
+Tuples have a number of special operations in S++, simplifying their usage. These special operations are:
+
+- [Binary folding (left and right)](#binary-folding)
+- [Function folding](#function-folding)
+- [Unpacking](#unpacking)
+- [Destructuring](#destructuring)
+- [Indexing (type and value)](#indexing)
+
 
 ## Tuple Operations
 

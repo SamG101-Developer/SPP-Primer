@@ -79,14 +79,17 @@ let Point(a, b): Point
 
 ### Recursive variable destructuring
 
-- **TODO**
+Variables can be declared with recursive variable destructuring, allowing a mix of tuple, struct and standard variable
+declarations. This might look like: `let Vec(pos=(x, ..), dir) = vector`. This would only take the `x` of the `pos`, and
+the `dir` attributes of the `vector` variable. There is no limit to the amount of recursion that can be done with
+variable declaration destructuring.
 
 ## Mutability of a variable
 
 Whenever a variable is declared, it is immutable by default. Immutability by default is a feature taken from Rust,
 and allows for safer programming, as there is it prevents unexpected and accidental changes to variables. To make a
-variable mutable, the `mut` keyword must be used with the `let` keyword. Tuple and struct parts must be individually
-marked as mutable.
+variable mutable, the `mut` keyword must be used with the `let` keyword. To make a parameter mutable, prefix its
+identifier with the `mut` keyword. Tuple and struct parts must be individually marked as mutable.
 
 ### Variable mutability example:
 
