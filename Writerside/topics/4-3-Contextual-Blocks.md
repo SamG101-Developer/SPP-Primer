@@ -1,31 +1,53 @@
 # 4.3. Contextual Blocks
 
-S++ has a feature called contextual blocks, which are blocks of code that are executed in a specific context. This is
-pretty much a direct copy of Python's `with` statement. To allow a type to be used contextually, one of
-the `Ctx[Mov|Ref|Mut]` type must be superimposed over it. This allows the `.enter_[mov|ref|mut]()`
-and `.exit[mov|ref|mut]()` methods to be optionally overridden, to allow for the contextual block to be entered and
-exited.
+S++ has a feature called **contextual blocks**, which are blocks of code that are executed under a context
+manager, allowing an "enter" and "exit" method on some object to wrap the block of code. A type can be used as a context
+manager if it superimposes either the `CtxRef` or `CtxMut` context manager type.
 
-If the return type of the enter method is `Void`, then the `with` expression cannot be aliased, as variables cannot hold
-a `Void` type. Aliasing the result of the `with` expression is done with a normal `let` statement. The return type of
-the enter method matches the generic parameter of the `Ctx{Mov|Ref|Mut}` type.
+Context managers are used to ensure that resources are cleaned up correctly, even if an error occurs. This includes file
+management, socket management, mutex acquiring/releasing, etc.
 
-Contextual blocks are still heavily under development, as the convention of the `self` parameter is still undecided.
-Whilst there could be individual context types (`CtxMov`, `CtxRef`, `CtxMut`), this presents issues with:
-1. `CtxMov` would need to move the object twice, once for the enter method and once for the exit method.
-2. How is which type to use decided? Can more than one be used?
+If a context's enter method returns a value, then "aliasing" is allowed for the context block; this allows the value
+returned from the enter method to be used in the block. This is useful for acquiring a resource and using it in the
+block. The "exit" method always returns `Void`.
 
-## Example (in theory)
+The `CtxRef` and `CtxMut` context manager types are used to specify whether the context manager is read-only or
+read-write, respectively. There is no `CtxMov`, because both the `enter` and `exit` methods would have to move
+the `self` argument, which is not allowed.
+
+Context manager definitions:
+```
+cls [T] CtxRef[T] { }
+
+sup CtxRef[T] {
+    use Out = T
+    fun enter(&self) -> Self.Out
+    fun exit(&self) -> Void
+}
+```
 
 ```
-use std.Ctx
+cls [T] CtxMut[T] { }
+
+sup CtxRef[T] {
+    use Out = T
+    fun enter(&self) -> Self.Out
+    fun exit(&self) -> Void
+}
+```
+
+
+## How to make a type a context manager
+
+```
+use std.CtxRef
 
 cls Mutex[T] {
     value: T
 }
 
 sup [T] CtxRef[Void] on Mutex[T] {
-    fun enter(&self) -> Void {
+    fun enter(&self) -> Self.Out {
         print("Locking mutex")
     }
 

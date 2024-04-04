@@ -2,18 +2,19 @@
 
 #### Origins & History
 
-S++ is a new programming language designed to be a modern, safe, and fast systems programming language, with
-a focus on performance and readability. It has a strong type system, and an ownership model based on second-class
-borrows, the Law of Exclusivity, and ownership tracking, allowing for safe programming without a garbage collector.
+S++ was created to primarily capture the speed and safety of Rust and the readability and simplicity of Python. It is
+designed to remove all the bad, overly complex and non-orthogonal aspects of every language, and keep everything else.
+This includes addressing the issues of Rust's complex syntax & lifetime analysis, C++'s lack of safety and readability,
+Python's lack of performance, Go's lack of generics, etc.
 
-There are concepts from other languages, (Rust, C++, Python, Go, Java) that flow through S++, as well as some features
-not found in other languages. The safety mechanisms are inspired by Rust, but with second-class borrows, meaning that
-lifetime analysis is not required for safe programming. Rust also inspires the type system, but with a new way to
-inherit types - superimposition. The type inference is so strong that it is syntactically disallowed to specify types
-for initialized variable declarations. The general language syntax is inspired by the C family of languages, but with a
-focus on consistency, readability and orthogonality, meaning that there are several "normalizations" that remove special
-cases and quirks found in C++/Rust. There are a number of keywords not found in other languages, but with the core of
-the keywords being a mix of Rust and Python.
+S++ is designed to continuously evolve, and will not guarantee backwards compatibility between versions. This will be
+visible under the versioning system of the language, with each major version increment representing one or more breaking
+changes.
+
+Certain features of S++ are inspired by other languages, but are generally modified to fit the language's design
+principles. Examples include a modified borrowed checker (inspired by Rust), context blocks (inspired by Python) and
+superimposition-based type inheritance (inspired by Rust). The underlying syntax is loosely based on the C family of
+languages, but with all the unnecessary and non-orthogonal parts removed, forcing a consistent and readable syntax.
 
 #### Language Philosophy & Core Principles
 
@@ -34,11 +35,10 @@ the keywords being a mix of Rust and Python.
 
 - **Efficient**: S++ is designed to be an efficient language, both efficient for the user to program in, and
   efficient for the computer to execute. This is achieved by removing unnecessary features, and forcing type inference,
-  to reduce how much the user has to type. Also, only the stack is ever used for memory allocation, meaning that
-  memory leaks are impossible.
+  to reduce how much the user has to type.
 
 - **Safety** S++ is designed to be a safe language, by using second-class borrows, enforcing the law of exclusivity, and
-  tracking ownership through blocks. These thee features combined allow for safe programming, without complex lifetime
+  tracking ownership through blocks. These three features combined allow for safe programming, without complex lifetime
   analysis or the use of a garbage collector.
 
 #### Language Features
