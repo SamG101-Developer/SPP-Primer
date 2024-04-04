@@ -26,9 +26,16 @@ Yielded values can be borrows, because control will always return to the corouti
 still be valid.
 
 All yields from a coroutine must follow the same convention (move, reference, or mutable reference), and the convention
-is based on the variant of the `Gen` type being used. For example if `GenRef` is being used, then all yields must use
+is based on the variant of the `Gen` type being used. For example, if `GenRef` is being used, then all yields must use
 the `&` immutable borrow convention. This is similar to the `Fun[Mov|Ref|Mut]` function types whose variant depicts the
 convention of the environment capture.
+
+#### Generator types:
+| Type                          | Convention        | Description                                  |
+|-------------------------------|-------------------|----------------------------------------------|
+| `GenMov[Yield, Return, Send]` | Move              | Moves the value out of the coroutine         |
+| `GenRef[Yield, Return, Send]` | Reference         | Borrows the value from the coroutine         |
+| `GenMut[Yield, Return, Send]` | Mutable Reference | Borrows the value mutably from the coroutine |
 
 ### Returning from a coroutine
 

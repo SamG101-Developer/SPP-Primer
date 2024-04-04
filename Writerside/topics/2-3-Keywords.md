@@ -42,7 +42,7 @@ does not matter.
 
 #### `use`
 
-The `use` keyword is used to declare a [type-alias](5-7-Aliasing.md), which can include bringing in a type from another
+The `use` keyword is used to declare a [type-alias](5-6-Aliasing.md), which can include bringing in a type from another
 module. This might look like `use OldType as NewType` or `use some.module.(X as Type1, Y as Type2)`. Type-aliases can
 be declared in any scope, including the module scope. Order of declaration does not matter in the module or sup scope,
 but follows normal program flow within a runtime scope, ie a function body.
@@ -118,7 +118,7 @@ information.
 
 #### `is`
 
-The `is` keyword is used to check if a value is a certain type inside a [union type](5-6-Union-Types.md#). It is seen
+The `is` keyword is used to check if a value is a certain type inside a [union type](5-5-Union-Types.md#). It is seen
 commonly in pattern matching.
 
 #### `as`

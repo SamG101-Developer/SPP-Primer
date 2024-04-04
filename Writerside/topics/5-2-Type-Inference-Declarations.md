@@ -1,4 +1,4 @@
-# 5.3. Type Inference &amp; Declarations
+# 5.2. Type Inference &amp; Declarations
 
 Every expression can be type-inferred. This means that type declarations on local variables are never needed, 
 because it adds extra noise and provides no additional information. Because of this, the design decision to 

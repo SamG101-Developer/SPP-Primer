@@ -1,3 +1,3 @@
-# 5.6. Union Types
+# 5.6. Aliasing
 
 Start typing here...

@@ -1,4 +1,4 @@
-# 5.2. Primitive Types
+# 5.1. Primitive Types
 
 In S++, there are no primitive types. All types are first-class, and can be used as types for variables, attributes, and
 parameters, etc. This allows the language to remain orthogonal, and prevents any unintended interactions between

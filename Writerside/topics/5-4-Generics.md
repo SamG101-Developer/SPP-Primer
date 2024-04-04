@@ -1,4 +1,4 @@
-# 5.5. Generics
+# 5.4. Generics
 
 ## Generic parameter classifications
 Generic parameters, like function parameters, have a number of classifications. These are:
