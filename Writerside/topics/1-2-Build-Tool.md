@@ -38,7 +38,7 @@ of VCS being used is detected from the URL, and the correct adapter is used to f
 | `branch`     | The branch of the project to use. Defaults to `master` or `main`.            | `str`  | `master/main` |
 
 ### Example build script
-```toml
+```
 [project]
 name = "My Project"
 version = "0.1.0"
