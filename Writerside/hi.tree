@@ -12,8 +12,8 @@
         <toc-element topic="1-3-Acknowledgments.md"/>
     </toc-element>
     <toc-element topic="2-Syntax.md">
-        <toc-element topic="2-1-Reading-Code.md"/>
-        <toc-element topic="2-2-Hello-World.md"/>
+        <toc-element topic="2-1-Comments.md"/>
+        <toc-element topic="2-2-Identifiers.md"/>
         <toc-element topic="2-3-Keywords.md"/>
         <toc-element topic="2-4-Tokens.md"/>
     </toc-element>

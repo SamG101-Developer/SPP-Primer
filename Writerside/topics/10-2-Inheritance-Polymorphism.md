@@ -7,7 +7,7 @@ supported.
 Inheritance is done by using the `sup` keyword, followed by the name of the class to inherit from. Following this is 
 the `on` keyword, and then the type being superimposed onto.
 
-### Inheritance example#
+### Inheritance example
 ```
 cls Foo {
     a: I32

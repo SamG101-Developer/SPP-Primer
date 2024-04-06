@@ -33,7 +33,7 @@ The build script attributes are as follows:
 
 To include other projects that are on a VCS, the url of the repository is required. The repository is then checked
 for a `build.toml` file, which is verified to be valid. The project is then included in the build process. The type
-of VCS being used is detected from the URL, and the correct adapter is used to fetch the project.
+of VCS being used is detected from the URL, and uses the correct adapter to fetch the project.
 
 #### Individual VCS attributes
 
@@ -108,7 +108,7 @@ The `spp` build tool has six commands, which are as follows:
 #### `spp help`
 
 - Shows help for the entire build tool.
-- Shows a list of commands, and their descriptions.
+- Shows a list of commands and their descriptions.
 
 #### `spp version`
 

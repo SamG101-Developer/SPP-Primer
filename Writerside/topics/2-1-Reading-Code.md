@@ -1,3 +1,0 @@
-# 2.1. Reading Code
-
-Start typing here...

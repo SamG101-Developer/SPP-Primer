@@ -37,12 +37,12 @@ languages, but with all the unnecessary and legacy parts removed, forcing a cons
   programming.
 
 - **Efficient**: S++ is designed to be both efficient for the user to program in, and efficient for the machine to
-  execute. This is achieved by stripping out legacy features in other languages, and forcing type inference, to reduce
+  execute. This is achieved by stripping out legacy features in other languages, and forcing type inference to reduce
   how much the user has to type.
 
 - **Safety** S++ is designed to be a safe language, by using second-class borrows, enforcing the law of exclusivity, and
   tracking ownership throughout blocks. Using these three techniques together ensures safety in every aspect of the
-  language, without having to use lifetime analysis or a garbage collector.
+  language, without having to use lifetime analysis or a reference counting.
 
 ## Language Features
 #### Syntax & Semantics
