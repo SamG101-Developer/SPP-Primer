@@ -19,3 +19,8 @@ The string literal syntax is `"<string>"`. This is the only way to create a stri
 
 There is no char literal in S++, because either the `[I|U]8` type can be used, or a 1-character string literal can be
 used. This means that the `'` token is not used for anything.
+
+## String backends
+- `std.str_backend.VectorStringBackend`
+- `std.str_backend.RopeStringBackend`
+- TODO

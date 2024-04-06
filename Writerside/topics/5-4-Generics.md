@@ -70,21 +70,61 @@ In this example:
 ## Inferring generic arguments
 
 ### Classes
+
 - Class attribute type.
 - Constraint of another generic parameter.
 
 ### Functions
+
 - Return type.
 - Parameter type.
 - Constraint of another generic parameter.
 
 ### Typedefs
+
 - If the generic is given to the LHS type.
 
 ### Superimpositions
+
 - If the generic is given to the class being superimposed over.
 
 ## Generic constraints
+
+Generic constraints can be used to restrict the types that can be used as generic arguments. This is done by listing the
+types that must be superimposed over the generic argument type. There are 2 ways to provide constraints:
+
+- Shorthand: following the generic argument
+- Longhand: in a `where` block
+
+Multiple constraints for a generic type are combined using the `&` operator, effectively creating an intersection of the
+types.
+
+### Shorthand
+
+The shorthand way to constrain a generic parameter looks like:
+
+```
+fun function[T: Copy, U: Add](a: T, b: U) {...}
+```
+
+### Longhand
+
+The longhand way to constrain a generic parameter looks like:
+
+```
+fun function[T, U](a: T, b: U) where [T: Copy, U: Add] {...}
+```
+
+The advantage of longhand is that multiple types can have the same combination of constraints, and that the constraints
+are separated from the generic parameters, making the function signature easier to read.
+
+For example, more complex constraints can be written like:
+
+```
+fun function[T, U, V](a: T, b: U, c: V) where [
+        T: Copy,
+        U, V: Add & Sub] {...}
+```
 
 ## Specialization
 

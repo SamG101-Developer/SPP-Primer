@@ -1,6 +1,6 @@
 # 3.3. Functions
 In S++, there are 3 types of functions, similar to Rust. There is the `FunRef`, `FunMut` and `FunMov` function types.
-All `fun` functions and methods are one of these 3 types, and can be passed around as values. The 1st class nature 
+All `fun` functions and methods are one of these 3 types, and can be passed around as values. The first-class nature 
 of functions in S++ allows for a lot of flexibility in how they are used, and reinforces the orthogonality of the 
 language.
 
@@ -158,7 +158,6 @@ fun foo() -> (Str, Str) {
     ret ("Hello", "world");
 }
 ```
-
 
 ## Function types
 The 3 function types, as mentioned earlier are the `FunRef`, `FunMut` and `FunMov` function types. These all have 

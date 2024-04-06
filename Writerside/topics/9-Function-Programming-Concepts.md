@@ -1,3 +1,0 @@
-# 9. Function Programming Concepts
-
-Start typing here...

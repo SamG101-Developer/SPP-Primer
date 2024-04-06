@@ -1,4 +1,4 @@
-# 7.3. 2nd Class Borrows
+# 7.2. 2nd Class Borrows
 
 S++ uses second-class borrows to ensure that all borrows are always valid, without the need for complex lifetime
 analysis.
@@ -26,7 +26,7 @@ constant).
 Like in Rust, borrows are created using the `&` operator. This will create an immutable borrow of the value on the rhs,
 and will be valid until the end of the current scope, or until the borrow is consumed as an argument to a function.
 To create a _mutable_ borrow, the `&mut` operator is used. For conflicting borrows, see
-the [law of exclusivity](7-4-The-Law-of-Exclusivity.md).
+the [law of exclusivity](7-3-The-Law-of-Exclusivity).
 
 ## Stacking borrows
 

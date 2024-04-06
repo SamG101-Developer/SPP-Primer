@@ -1,4 +1,4 @@
-# 7.4. The Law of Exclusivity
+# 7.3. The Law of Exclusivity
 
 Another core memory feature of S++ to ensure safety is the enforcement of the Law of Exclusivity. This prevents
 overlapping mutable borrows from being taken at the same time, as this could lead to data races and inconsistent memory
