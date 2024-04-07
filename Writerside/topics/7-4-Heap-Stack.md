@@ -1,7 +1,7 @@
 # 7.4. Heap & Stack
 
 In S++, the stack is used aggressively, with the heap only being used for global constants. This is because the stack
-is much faster than the heap, and because [second-class borrows](7-2-2nd-Class-Borrows) are used, the lifetime of
+is much faster than the heap, and because [second-class borrows](7-2-2nd-Class-Borrows.md) are used, the lifetime of
 borrows is always less than the lifetime of the stack frame they are created in. This means that the stack can be used
 for almost everything, and the risk of memory corruption is greatly reduced.
 

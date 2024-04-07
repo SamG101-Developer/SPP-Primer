@@ -8,7 +8,7 @@ always be valid due to their second-class nature. This means that null pointer d
 
 #### Use-after-free / dangling pointers
 Use-after-free errors occur when a pointer is used after the memory it points to has been freed. This is not 
-possible in S++, because borrows are [second-class](7-2-2nd-Class-Borrows), and so are guaranteed to be valid for 
+possible in S++, because borrows are [second-class](7-2-2nd-Class-Borrows.md), and so are guaranteed to be valid for 
 the lifetime of the borrow.
 
 #### Use of uninitialized memory

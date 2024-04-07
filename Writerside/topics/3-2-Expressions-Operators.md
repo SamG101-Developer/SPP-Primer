@@ -1,33 +1,56 @@
 # 3.2. Expressions & Operators
 
 ## Expressions
+
 ### Binary expressions
+
 ### Postfix expressions
+
 #### Function call
+
 #### Member access
+
 #### Early return
+
 ### Unary expressions
+
 #### Async function call modifier
+
 ### Primary expressions
+
 #### Literals
+
 #### Identifier
+
 #### Parenthesized expression
+
 #### Object instantiation
+
 #### Lambda expression
+
 #### CaseExpression
+
 #### LoopExpression
+
 #### WithExpression
+
 #### YieldExpression
+
 #### InnerScope
+
 #### TypeExpression
+
 #### Primary token expressions
+
 ### Token expressions
 
 ## Operators
-S++ has a large number of operators, which allow for increased readability and minimalism in code. There are binary 
+
+S++ has a large number of operators, which allow for increased readability and minimalism in code. There are binary
 operators, postfix operators, but no unary operators (with one minor exception mentioned later).
 
 ### Binary operators
+
 | Operator | Name                            | Class                  | Precedence |
 |----------|---------------------------------|------------------------|------------|
 | `=`      | Assignment                      | `std.ops.Assign`       | 0          |
@@ -73,22 +96,25 @@ operators, postfix operators, but no unary operators (with one minor exception m
 | `**`     | Exponentiation                  | `std.ops.Pow`          | 7          |
 | `&`      | Bitwise AND                     | `std.ops.BitAnd`       | 7          |
 
-The precedence of binary operators is a lot simpler than other languages, meaning there is less to remember. Both 
-logical operators are short-circuiting too, optimizing code. All operators, except `**` are evaluated left-to-right, 
-and the precedence issue found in C-derived languages, where `&` has a higher precedence than comparison operators, 
+The precedence of binary operators is a lot simpler than other languages, meaning there is less to remember. Both
+logical operators are short-circuiting too, optimizing code. All operators, except `**` are evaluated left-to-right,
+and the precedence issue found in C-derived languages, where `&` has a higher precedence than comparison operators,
 is fixed.
 
 #### Binary comparison operator chaining
-In S++, comparison operators can be chained, simplifying code. For example, `1 < 2 < 3` is equivalent to `(1 < 2) && 
-(2 < 3)`. This feature is taken from Python, and is beneficial in simplifying code and improving readability. The 
-comparison operators that can be chained are: `==`, `!=`, `>`, `<`, `>=`, `<=`. Note that `<=>` and `is` are not 
+
+In S++, comparison operators can be chained, simplifying code. For example, `1 < 2 < 3` is equivalent to `(1 < 2) &&
+(2 < 3)`. This feature is taken from Python, and is beneficial in simplifying code and improving readability. The
+comparison operators that can be chained are: `==`, `!=`, `>`, `<`, `>=`, `<=`. Note that `<=>` and `is` are not
 included, despite being usable for comparison.
 
 #### Binary operator overloading
-Operator overloading works similarly to in Rust, where the operator is a function. Classes have generic parameters 
-so that the `RHS` and `Out` types can be specified (but default to `Self`), and unique overloads per types being 
-operated on can be created. For example, to make a `Vec3D` class add-able to itself, and return another `Vec3D`, the 
+
+Operator overloading works similarly to in Rust, where the operator is a function. Classes have generic parameters
+so that the `RHS` and `Out` types can be specified (but default to `Self`), and unique overloads per types being
+operated on can be created. For example, to make a `Vec3D` class add-able to itself, and return another `Vec3D`, the
 `std.ops.Add[Rhs=Vec3D, Out=Vec3D]` class must be superimposed on the type:
+
 ```
 cls Vec3D {
     x: F64;
@@ -104,6 +130,7 @@ sup Add on Vec3D {
 ```
 
 #### Equality
+
 The `==` operator has two different uses, that are hidden by the language, and make the language a lot easier to use.
 The first usage is for owned object: comparing, structurally, that they are the same. This by default applies the `==`
 operator recursively through the object, calling `==` on each member. A custom `==` method can be defined to override
@@ -115,6 +142,7 @@ this is absolutely necessary, then the `.clone()` method can be called on the bo
 which can then be compared.
 
 ### Postfix operators
+
 There are 3 postfix operators in S++:
 
 | Postfix Operator | Name                   | Description                                                                               |
@@ -127,9 +155,11 @@ There are 3 postfix operators in S++:
 | `?`              | Early return           | If the expression is residual and in the fail state, return the wrapped fail value.       |
 
 #### Postfix operator overloading
-The only postfix operators that can be overloaded are the `Fun[Ref|Mut|Mov]` function call operators. These are 
-overloaded in the same way as binary operators, but the methods have different signatures. The following example 
+
+The only postfix operators that can be overloaded are the `Fun[Ref|Mut|Mov]` function call operators. These are
+overloaded in the same way as binary operators, but the methods have different signatures. The following example
 shows how to make a `Vec3D` class callable with a certain signature:
+
 ```
 cls Vec3D {
     x: F64;
@@ -153,7 +183,9 @@ fun main() -> Void {
 ```
 
 ### Unary operators
-There are no unary operators like `!`, `--`, `++` etc. Instead, methods are preferred as they are a lot more 
+
+There are no unary operators like `!`, `--`, `++` etc. Instead, methods are preferred as they are a lot more
 readable. For example, `loop !some_expression().value.is_some() { ... }` is a lot less readable than `loop
-some_expression().value.is_some().not() { ... }`. This also encourages the left-to-right reading of expressions too. 
-There is the case where [asynchronous function calls]() are made with `async <expr>`, but this isn't an operator.
+some_expression().value.is_some().not() { ... }`. This also encourages the left-to-right reading of expressions too.
+There is the case where [asynchronous function calls](11-1-Asynchronous-Functions.md) are made with `async <expr>`, but
+this isn't an operator.

@@ -143,7 +143,7 @@ The `ret` keyword is used to return a value out of a function. An expression wil
 function returns a value. If the function returns `Void`, then the `ret` keyword is optional, and can be omitted. It 
 may still be required, though, if it is not the final statement in the method (ie in a nested block).
 
-Only owned values may be returned. This is explained in [2nd class borrows]() in more detail.
+Only owned values may be returned. This is explained in [2nd class borrows](7-2-2nd-Class-Borrows.md) in more detail.
 
 #### Returning a single value:
 ```

@@ -1,6 +1,6 @@
 # 10.2. Inheritance &amp; Polymorphism
 In S++, [superimposition](10-1-Classes-Objects.md#superimposition) is used for inheritance, by extending the normal 
-superimposition syntax slighty. Because any number of superimposition blocks can be defined, multiple inheritance is 
+superimposition syntax slightly. Because any number of superimposition blocks can be defined, multiple inheritance is 
 supported.
 
 ## Inheritance

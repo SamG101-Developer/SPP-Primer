@@ -26,7 +26,7 @@ constant).
 Like in Rust, borrows are created using the `&` operator. This will create an immutable borrow of the value on the rhs,
 and will be valid until the end of the current scope, or until the borrow is consumed as an argument to a function.
 To create a _mutable_ borrow, the `&mut` operator is used. For conflicting borrows, see
-the [law of exclusivity](7-3-The-Law-of-Exclusivity).
+the [law of exclusivity](7-3-The-Law-of-Exclusivity.md).
 
 ## Stacking borrows
 
