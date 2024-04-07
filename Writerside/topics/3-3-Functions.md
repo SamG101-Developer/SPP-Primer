@@ -248,7 +248,8 @@ There are a number of checks that occur in order to detect the correct overload.
 Function recursion is supported, and all recursive functions are re-written to be tail call recursive. This allows 
 for the tail call optimization to be applied to all recursive functions, and allows for infinite recursion to be 
 used without stack overflow; the limiter becomes time rather than space, as the stack frame is replaced with the 
-new stack frame, rather than a new one being created and added.
+new stack frame, rather than a new one being created and added. See the topic on [recursion](9-5-Recursion.md) for more
+detail.
 
 ## Calling functions
 Functions and methods are called with parenthesis around the group of arguments. Arguments can be

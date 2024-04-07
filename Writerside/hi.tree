@@ -56,9 +56,11 @@
         <toc-element topic="8-3-Unit-Testing-Debugging.md"/>
     </toc-element>
     <toc-element topic="9-Functional-Programming-Concepts.md">
-        <toc-element topic="9-3-1st-Class-Functions.md"/>
         <toc-element topic="9-1-Lambdas-High-Order-Functions.md"/>
         <toc-element topic="9-2-Error-Handling-Opt-Ret.md"/>
+        <toc-element topic="9-3-1st-Class-Functions.md"/>
+        <toc-element topic="9-4-Immutability.md"/>
+        <toc-element topic="9-5-Recursion.md"/>
     </toc-element>
     <toc-element topic="10-Object-Oriented-Programming.md">
         <toc-element topic="10-1-Classes-Objects.md"/>

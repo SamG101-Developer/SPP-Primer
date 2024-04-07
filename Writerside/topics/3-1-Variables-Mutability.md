@@ -89,7 +89,8 @@ variable declaration destructuring.
 Whenever a variable is declared, it is immutable by default. Immutability by default is a feature taken from Rust,
 and allows for safer programming, as there is it prevents unexpected and accidental changes to variables. To make a
 variable mutable, the `mut` keyword must be used with the `let` keyword. To make a parameter mutable, prefix its
-identifier with the `mut` keyword. Tuple and struct parts must be individually marked as mutable.
+identifier with the `mut` keyword. Tuple and struct parts must be individually marked as mutable. See the page
+on [immutability](9-4-Immutability.md) for more information.
 
 ### Variable mutability example:
 
