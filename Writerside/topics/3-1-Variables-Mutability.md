@@ -92,6 +92,9 @@ variable mutable, the `mut` keyword must be used with the `let` keyword. To make
 identifier with the `mut` keyword. Tuple and struct parts must be individually marked as mutable. See the page
 on [immutability](9-4-Immutability.md) for more information.
 
+The mutability of a variable is not tied to the variable's type, but to the variable itself, simplifying the language by
+a large amount.
+
 ### Variable mutability example:
 
 ```

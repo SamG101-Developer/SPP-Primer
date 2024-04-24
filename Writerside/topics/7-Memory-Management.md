@@ -1,5 +1,18 @@
 # 7. Memory Management
 
+S++ has partially automatic memory management. The programmer never has to manually allocate or deallocate memory;
+object initialization allocates an object, and either a move or a destructor deallocates it. Borrows, however, must be
+created manually, so the compiler knows whether a mutable or immutable borrow is being created.
+
+It would have been possible to make borrows be created automatically by checking the function prototype being called,
+and match argument to parameter conventions, but this would make it difficult to see where borrows are being created,
+and overloads could not be created with different conventions to arguments, because there would be no way to determine
+which one to use, so `&` and `&mut` are used instead.
+
+Borrows are like Rust's borrows: they are pointers to an object, cannot be null and are guaranteed to be valid. There is
+no `unsafe` mechanism in S++, because safe code can always be written, and `unsafe` code is a sign of a language
+deficiency.
+
 S++ uses three separate techniques in tandem to safely manage memory, whilst not compromising performance or
 readability. These techniques are:
 

@@ -54,3 +54,12 @@ valid.
 | `x: &mut T`           | Mutable borrow of `x`, cannot be reassigned   |
 | `mut x: &T`           | Immutable borrow of `x`, can be reassigned    |
 | `mut x: &mut T`       | Mutable borrow of `x`, can be reassigned      |
+
+## Storing borrows in containers
+
+Because the convention of a symbol is attached to a variable and not the variable's type, it is not possible to store
+borrows inside a container. This means that a generic type cannot be `&T`, and therefore there cannot be a `Vec[&T]`
+type. This is the same for tuples.
+
+The way to iterate with borrows is to use [Coroutines/Generators](11-2-Concurrency-Coroutines.md), which can yield
+borrows to the caller, using `GenRef` or `GenMut` types.
