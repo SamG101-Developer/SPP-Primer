@@ -5,13 +5,17 @@ types cannot be implicitly converted. Every type is a first-class object, includ
 and classes. This means that they can all be passed as arguments, returned from functions, and assigned to variables,
 enforcing the orthogonality of the language.
 
+The type system is so strong, that even implicit upcasting is not allowed; the special `std::upcast` method is required.
+The upcast method is constrained to take an argument that superimposes the target type, and the downcast equivalent
+function returns an `Opt[T]`, as there is no guarantee which subclass the superclass might be a part of.
+
 There are no "primitive" types with special syntax, like in C++. All types are defined in the standard library, and some
 are known to the compiler, such as the integer-based classes, the boolean and void type. Again, these are all
 first-class objects, so their semantic behaviour is the same as any object.
 
 Type inference is used extensively, to the point that specifying a type for local variables that are given a value is
-not allowed. This is because the type can be inferred from the value, and so specifying the type is redundant. This
-also improves the readability of the code, as the type is not repeated.
+not allowed. This is because a value's type can **always** be inferred from the value, and so specifying the type is
+redundant. This also improves the readability of the code, as the type is not repeated.
 
 Aliasing is supported in S++, allowing for the same type to be given multiple names. This is useful for when a type is
 used in multiple places, but the name of the type is too long to be used everywhere. Furthermore, this allows for
@@ -31,7 +35,7 @@ class, and are analogous to `Result<T, E>` and `Option<T>` in Rust.
 
 Union types are mapped to the `std.Var[Ts]` variant class, were the generic parameter `..Ts` is a variadic list of
 types. This class is used to represent a type that can be one of multiple types, and is used for branching. It is
-commonly seen with the `is` keyword, in pattern matching.
+commonly seen with the `is` keyword, in pattern matching. The `|` token is used for union type shorthand.
 
 Flow typing is used with union types, to allow for a type to be treated as a possible internal type, within the scope of
 the pattern match being considered. This reduces the amount of casting that is required, and improves the readability of

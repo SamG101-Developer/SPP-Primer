@@ -45,44 +45,56 @@ languages, but with all the unnecessary and legacy parts removed, forcing a cons
   language, without having to use lifetime analysis or a reference counting.
 
 ## Language Features
+
 #### Syntax & Semantics
+
 - Braces as block delimiters.
 - No semicolons at the end of lines.
 - One branching, looping, and contextual block type.
 - Isolated scopes and variable shadowing.
 
 #### Types
+
 - Strong, static, affine type system.
 - Powerful type inference (type + value not allowed)
 - Arrays, functions, tuples etc. are first-class types.
 - No implicit type casting under any circumstance.
 
 #### Safety
+
 - Second-class borrowing system.
 - Law of exclusivity.
 - Ownership tracking.
 
 #### Functional programming
+
 - First-class functions (`FunMov`, `FunRef`, `FunMut`)
 - Lambdas with explicit variable capturing.
 - Variable declarations default to immutable.
 
 #### Object oriented programming
+
 - Separate state and behaviour of classes.
 - Superimposition-based type inheritance.
 - Encapsulation with annotations
 - Method overloading and overriding.
 
 #### Async/Concurrency/Parallelism
+
 - Asynchronous functions without the colour problem.
 - Coroutines that act like Python generators.
 - Threading primitives.
 
 #### Exceptions
+
 - The monadic `Ret[T, E]` type is used (like Rust's `Result`)
 - Shorthand `?` operator to propagate errors out the function.
 
 #### Other
+
 - Generics & constraints for functions, classes, sups.
 - Advanced pattern matching.
 - Simple module system with matching namespacing.
+
+## Notes
+- S++ is not backwards compatible between major versions.
