@@ -78,14 +78,4 @@ fun baz() -> GenMov[BigNum] {
     gen with foo()
     gen with bar()
 }
-
-fun main() -> Void {
-    let x = baz()
-    loop x.next() is BigNum {
-        print(x)
-    }
-}
 ```
-
-This will print `1 2 3 4 5 6`.
-
