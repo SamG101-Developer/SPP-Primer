@@ -1,4 +1,4 @@
-# 14.2 Annotations
+# 14.2. Annotations
 
 Annotations can be applied over classes, functions and attributes. They allow code to be injected at the token level,
 and can be used for a variety of purposes, such as simplifying stateless superimposition. Annotations are applied by

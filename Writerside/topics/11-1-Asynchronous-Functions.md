@@ -11,7 +11,8 @@ non-blocking, and the value can be retrieved later.
 ## The `Fut[T]` type
 
 The future type `Fut[T]` has a `.await()` method on it, so that if required, the future can be blocked until its
-internal value has been resolved.
+internal value has been resolved. In reality, this will probably never be used, because the function can just be called
+synchronously to wait for the value.
 
 ## Memory safety
 
