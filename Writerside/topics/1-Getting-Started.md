@@ -14,7 +14,7 @@ changes.
 Certain features of S++ are inspired by other languages, but are generally modified to fit the language's design
 principles. Examples include a modified borrowed checker (inspired by Rust), context blocks (inspired by Python) and
 superimposition-based type inheritance (inspired by Rust). The underlying syntax is loosely based on the C family of
-languages, but with all the unnecessary and legacy parts removed, forcing a consistent and readable syntax.
+languages, but with all the unnecessary and legacy parts removed, creating a consistent and readable syntax.
 
 ## Language Philosophy & Core Principles
 
@@ -46,7 +46,7 @@ languages, but with all the unnecessary and legacy parts removed, forcing a cons
 
 ## Language Features
 
-#### Syntax & Semantics
+### Syntax & Semantics
 
 - Braces as block delimiters.
 - No semicolons at the end of lines.

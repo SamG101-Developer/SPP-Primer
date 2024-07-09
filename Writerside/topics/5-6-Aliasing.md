@@ -14,12 +14,12 @@ syntactically optional for the `use` statement, explained in the [aliasing](#non
 #### Reduce single types
 
 ```
-use some.long.namespace_a.{Type1}
-use some.long.namespace_b.{Type2}
+use some::long::namespace_a::(Type1)
+use some::long::namespace_b::(Type2)
 ```
 
 ```
-use some.long.{namespace_a.Type1, namespace_b.Type2}
+use some::long::(namespace_a::Type1, namespace_b::Type2)
 ```
 
 #### Reduce multiple types

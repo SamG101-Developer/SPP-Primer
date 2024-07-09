@@ -79,8 +79,8 @@ else { "hello stranger" }
 
 ```
 case person then
-    == Person(name="john", age, ..) && age > 18 { "hello john, you are ${age} years old" }
-    == Person(name="jane", age, ..) && age > 18 { "hello jane, you are ${age} years old" }
+    == Person(name="john", age, ..) and age > 18 { "hello john, you are ${age} years old" }
+    == Person(name="jane", age, ..) and age > 18 { "hello jane, you are ${age} years old" }
 else { "hello stranger" }
 ```
 
