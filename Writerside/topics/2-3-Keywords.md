@@ -97,11 +97,6 @@ The `with` keyword is used to declare a [context block](4-3-Contextual-Blocks.md
 must be followed with an expression whose inferred type superimposes the `std.Ctx` type. On entering the block, the
 `.enter()` method is called on the value, and on exiting the block, the `.exit()` method is called on the value.
 
-#### `then`
-
-The `then` keyword is required by the parser, following a `case` condition, to separate the condition from the patterns
-that follow per branch. **This is likely to be changed in the future**.
-
 ## Control Flow Exit Keywords
 
 #### `ret`
@@ -157,12 +152,37 @@ The `Self` keyword is used to refer to the current type within a class. It is re
 type of the class, and is purely used to shorthand the type of the class. It can be used to access type-aliases of the
 class too.
 
+## Logical Operator Keywords
+
+#### `and`
+
+The `and` keyword, taken from Python, is used to represent the logical `and` operator, used in binary expressions.
+
+#### `or`
+
+The `or` keyword, taken from Python, is used to represent the logical `or` operator, used in binary expressions.
+
+#### `not`
+
+The `not` keyword, taken from Python, is used to represent the logical `not` operator. Unlike most languages which
+use `not` as a unary operator, S++ uses it as a postfix operator: `a().b.not`, as the `not` applies to the final part of
+an expression.
+
 ## Miscellaneous Keywords
 
 #### `on`
 
 The `on` keyword is used to superimpose a class over another class. It is used
 for [class superimposition](10-1-Classes-Objects.md#superimposition).
+
+#### `in`
+
+The `in` keyword is used for looping through an iterator. It is paired with the `loop` keyword.
+
+#### `then`
+
+The `then` keyword is required by the parser, following a `case` condition, to separate the condition from the patterns
+that follow per branch. **This is likely to be changed in the future**.
 
 #### `async`
 

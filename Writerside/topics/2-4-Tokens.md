@@ -58,74 +58,43 @@
 `+`
 
 - Define a positive number literal.
-- Define a binary addition operation.
+- Define an addition operation.
+- Combine multiple constraints for a generic parameter.
 
 `-`
 
 - Define a negative number literal.
-- Define a binary subtraction operation.
+- Define a subtraction operation.
 
 `*`
 
-- Define a binary multiplication operation.
+- Define a multiplication operation.
 - Import all types from a module.
 
 `**`
 
-- Define a binary exponentiation operation.
+- Define a exponentiation operation.
 
 `/`
 
-- Define a binary division operation.
+- Define a division operation.
 
 `%`
 
-- Define a binary remainder operation.
+- Define a remainder operation.
 
 `%%`
 
-- Define a binary modulo operation.
+- Define a modulo operation.
 
 `&`
 
-- Define a binary bitwise AND operation.
 - Define a borrowing operation.
-- Combine multiple constraints for a generic parameter.
 
 `|`
 
-- Define a binary bitwise OR operation.
-- Define multiple patterns in a `case` expression.
 - Define a union type.
-
-`^`
-
-- Define a binary bitwise XOR operation.
-
-`&&`
-
-- Define a logical AND operation.
-- Define a pattern guard in a `case` expression.
-
-`||`
-
-- Define a logical OR operation.
-
-`<<`
-
-- Define a binary bitwise left shift operation.
-
-`>>`
-
-- Define a binary bitwise right shift operation.
-
-`<<<`
-
-- Define a binary bitwise left rotate operation.
-
-`>>>`
-
-- Define a binary bitwise right rotate operation.
+- Define multiple patterns in a match expression.
 
 `<=>`
 
@@ -193,41 +162,6 @@
 
 - Define a binary modulo assignment operation.
 
-`&=`
-
-- Define a binary bitwise AND assignment operation.
-
-`|=`
-
-- Define a binary bitwise OR assignment operation.
-
-`^=`
-
-- Define a binary bitwise XOR assignment operation.
-
-`&&=`
-
-- Define a logical AND assignment operation.
-
-`||=`
-
-- Define a logical OR assignment operation.
-
-`<<=`
-
-- Define a binary bitwise left shift assignment operation.
-
-`>>=`
-
-- Define a binary bitwise right shift assignment operation.
-
-`<<<=`
-
-- Define a binary bitwise left rotate assignment operation.
-
-`>>>=`
-
-- Define a binary bitwise right rotate assignment operation.
 
 `??`
 

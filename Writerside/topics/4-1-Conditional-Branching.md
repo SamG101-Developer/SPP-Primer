@@ -54,8 +54,8 @@ else { "tuple is something else" }
 
 ```
 case person then
-    == Person { name="john", age, .. } { "hello john, you are ${age} years old" }
-    == Person { name="jane", age, .. } { "hello jane, you are ${age} years old" }
+    == Person (name="john", age, ..) { "hello john, you are ${age} years old" }
+    == Person (name="jane", age, ..) { "hello jane, you are ${age} years old" }
 else { "hello stranger" }
 ```
 
@@ -88,8 +88,8 @@ else { "hello stranger" }
 
 ```
 case person then
-    == john | jane { "hello john or jane" }
-    == jack | jill { "hello jack or jill" }
+    == john, jane { "hello john or jane" }
+    == jack, jill { "hello jack or jill" }
 else { "hello stranger" }
 ```
 
