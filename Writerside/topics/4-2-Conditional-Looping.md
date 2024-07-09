@@ -15,7 +15,7 @@ For a conditional loop, synonymous to a standard while-loop, a boolean condition
 condition is checked before each iteration of the loop. If the condition is false, the loop is exited. If the condition
 is true, the loop is executed.
 
-```s++
+```
 loop condition { ... }
 ```
 
